@@ -1,10 +1,10 @@
 [tool.poetry]
-name = "aoc-2023"
+name = "python"
 version = "0.1.0"
 description = ""
 authors = ["Austin Witherspoon <contact@austinwitherspoon.com>"]
 readme = "README.md"
-packages = [{include = "aoc_2023"}]
+packages = [{include = "python"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
