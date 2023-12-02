@@ -10,7 +10,7 @@ import logging
 
 LOGGER = logging.getLogger(__name__)
 LOGGER.addHandler(logging.StreamHandler(sys.stderr))
-LOGGER.setLevel(logging.DEBUG)
+LOGGER.setLevel(logging.INFO)
 
 # for our purposes, these are all numbers we care about, because
 # from these we can determine the start or end digit of any written number
@@ -86,11 +86,10 @@ def get_last_digit(line: str) -> int:
 def get_calibration_value(document: str) -> int:
     """Given a document, return the sum of all
     calibration values extracted from the document."""
-    LOGGER.info("Getting calibration value from document.")
+    LOGGER.debug("Getting calibration value from document.")
     LOGGER.debug(f"Document: {document}")
     numbers = []
     for line in document.splitlines():
-        LOGGER.debug(f"Line: {line}")
         first_digit = get_first_digit(line)
         last_digit = get_last_digit(line)
         LOGGER.debug(f"First digit: {first_digit}")
@@ -100,7 +99,7 @@ def get_calibration_value(document: str) -> int:
     LOGGER.debug(f"Numbers: {numbers}")
 
     calibration_value = sum(numbers)
-    LOGGER.info(f"Calibration value: {calibration_value}")
+    LOGGER.debug(f"Calibration value: {calibration_value}")
 
     return calibration_value
 
